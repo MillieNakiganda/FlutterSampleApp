@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/screens/training_screen.dart';
+
+import '../screens/bmi_screen.dart';
+import '../screens/intro_screen.dart';
+import '../screens/weather_screen.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({Key? key}) : super(key: key);
@@ -22,10 +27,29 @@ class MenuDrawer extends StatelessWidget {
         child: Text('Naki Fitness',
             style: TextStyle(color: Colors.white, fontSize: 28))));
 
+    Widget screen = Container();
     for (var element in menuTitles) {
       menuItems.add(ListTile(
         title: Text(element, style: const TextStyle(fontSize: 18)),
-        onTap: () {},
+        onTap: () {
+          switch (element) {
+            case 'Home':
+              screen = const IntroScreen();
+              break;
+            case 'BMI Calculator':
+              screen = const BmiScreen();
+              break;
+            case 'Weather':
+              screen = const Weather();
+              break;
+            case 'Training':
+              screen = const Training();
+              break;
+            default:
+          }
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => screen));
+        },
       ));
     }
     return menuItems;
