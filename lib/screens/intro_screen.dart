@@ -9,6 +9,23 @@ class IntroScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Naki Fitness')),
       drawer: const MenuDrawer(),
+      bottomNavigationBar: BottomNavigationBar(
+          onTap: (int index) {
+            switch (index) {
+              case 0:
+                Navigator.pushNamed(context, '/');
+                break;
+              case 1:
+                Navigator.pushNamed(context, '/bmi');
+                break;
+              default:
+            }
+          },
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.monitor_weight), label: 'BMI')
+          ]),
       body: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
