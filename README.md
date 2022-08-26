@@ -1,16 +1,15 @@
-# flutter_sample
+<div align="center">
+ <h2>Naki Fitness</h2>
+</div>
 
-A new Flutter project.
+<p>An app to help you calculate your bmi and guide in training</p>
 
-## Getting Started
+## Getting started
 
-This project is a starting point for a Flutter application.
+The app requires Flutter SDK and android SDK to run on your machine. Checkout the [docs](https://docs.flutter.dev/) to see installation guidelines for flutter and [docs](https://developer.android.com/studio/intro) to see how to install android SDK.
 
-A few resources to get you started if this is your first Flutter project:
+#### Installation guidelines
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Clone the repository
+- On your command line, switch to the app root directory
+- Install dependencies using `flutter pub get`
