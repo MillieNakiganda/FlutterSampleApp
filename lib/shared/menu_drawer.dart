@@ -40,7 +40,7 @@ class MenuDrawer extends StatelessWidget {
               screen = const BmiScreen();
               break;
             case 'Weather':
-              screen = const Weather();
+              screen = const WeatherScreen();
               break;
             case 'Training':
               screen = const Training();

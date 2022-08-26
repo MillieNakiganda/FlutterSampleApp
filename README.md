@@ -8,6 +8,8 @@
 
 The app requires Flutter SDK and android SDK to run on your machine. Checkout the [docs](https://docs.flutter.dev/) to see installation guidelines for flutter and [docs](https://developer.android.com/studio/intro) to see how to install android SDK.
 
+Checkout the Open weather Api [docs](https://openweathermap.org/current) on how to make the API call and a look on what JSON API reponse looks like.
+
 #### Installation guidelines
 
 - Clone the repository
