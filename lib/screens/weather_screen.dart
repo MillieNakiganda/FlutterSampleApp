@@ -2,15 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/data/http_helper.dart';
 import 'package:flutter_sample/shared/menu_drawer.dart';
 
-class Weather extends StatefulWidget {
-  const Weather({Key? key}) : super(key: key);
+import '../data/weather.dart';
+
+class WeatherScreen extends StatefulWidget {
+  const WeatherScreen({Key? key}) : super(key: key);
 
   @override
-  State<Weather> createState() => _WeatherState();
+  State<WeatherScreen> createState() => _WeatherState();
 }
 
-class _WeatherState extends State<Weather> {
-  String result = '';
+class _WeatherState extends State<WeatherScreen> {
+  Weather weatherresult = Weather(
+      name: '',
+      description: '',
+      temperature: 0,
+      perceived: 0,
+      pressure: 0,
+      humidity: 0);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +28,7 @@ class _WeatherState extends State<Weather> {
       body: Column(
         children: [
           ElevatedButton(onPressed: getData, child: const Text('Get Data')),
-          Text(result),
+          Text(weatherresult.name),
         ],
       ),
     );
@@ -27,7 +36,7 @@ class _WeatherState extends State<Weather> {
 
   Future getData() async {
     HttpHelper helper = HttpHelper();
-    result = await helper.getWeather('London');
+    weatherresult = await helper.getWeather('London');
     setState(() {});
   }
 }
