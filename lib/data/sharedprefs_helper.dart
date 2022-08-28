@@ -17,10 +17,24 @@ class SharedPrefsHelper {
     List<Session> sessions = [];
     Set<String> keys = prefs.getKeys();
     for (var key in keys) {
-      Session session =
-          Session.fromJson(json.decode(prefs.getString(key) ?? ''));
-      sessions.add(session);
+      //since we only have counter and different numbers as keys, so we only want those with numbers as keys
+      if (key != 'counter') {
+        Session session =
+            Session.fromJson(json.decode(prefs.getString(key) ?? ''));
+        sessions.add(session);
+      }
     }
     return sessions;
+  }
+
+  // manual generation of ids for our sessions
+  Future setCounter() async {
+    int counter = prefs.getInt('counter') ?? 0;
+    counter++;
+    await prefs.setInt('counter', counter);
+  }
+
+  int getCounter() {
+    return prefs.getInt('counter') ?? 0;
   }
 }

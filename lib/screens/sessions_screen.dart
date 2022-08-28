@@ -72,12 +72,16 @@ class _SessionsScreenState extends State<SessionsScreen> {
   Future saveSession() async {
     DateTime now = DateTime.now();
     String today = '${now.year} - ${now.month} - ${now.day}';
+    int id = sphelper.getCounter();
     Session newSession = Session(
-        id: 1,
+        id: id,
         date: today,
         description: txtDescription.text,
         duration: int.tryParse(txtDuration.text) ?? 0);
-    sphelper.writeSession(newSession);
+    sphelper.writeSession(newSession).then((_) {
+      updateScreen();
+      sphelper.setCounter();
+    });
 
     txtDescription.text = '';
     txtDuration.text = '';
